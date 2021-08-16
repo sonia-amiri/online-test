@@ -66,13 +66,13 @@
 </template>
 
 <script>
-import getAllRecords from '@/api/paper/getAllRecords'
+// import getAllRecords from '@/api/paper/getAllRecords'
 import { errorTip, successTip } from '@/utils/tips'
 import { dateTimeFormatter } from '@/utils/time'
 
-import { forTypeName } from '@/api/question/createQuestion'
-import getPaperByPlanId from '@/api/paper/getPaperById'
-import checkPaper from '@/api/paper/checkPaper'
+// import { forTypeName } from '@/api/question/createQuestion'
+// import getPaperByPlanId from '@/api/paper/getPaperById'
+// import checkPaper from '@/api/paper/checkPaper'
 
 export default {
   name: 'Record',

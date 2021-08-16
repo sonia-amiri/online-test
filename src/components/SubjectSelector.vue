@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import { errorTip } from '@/utils/tips'
-import getSubject from '@/api/subject/getSubject'
+// import { errorTip } from '@/utils/tips'
+// import getSubject from '@/api/subject/getSubject'
 export default {
   name: 'SubjectSelector',
   data () {
@@ -33,16 +33,16 @@ export default {
   },
   methods: {
     search (name) {
-      const params = getSubject.initParams()
+      // const params = getSubject.initParams()
       this.loading = true
-      params.name = name.trim()
-      params.perPage = 50
-      getSubject.request(params)
-        .then(resp => {
-          this.options = resp.results
-        })
-        .catch(errorTip)
-      this.loading = false
+      // params.name = name.trim()
+      // params.perPage = 50
+      // getSubject.request(params)
+    //     .then(resp => {
+    //       this.options = resp.results
+    //     })
+    //     .catch(errorTip)
+    //   this.loading = false
     }
   }
 }

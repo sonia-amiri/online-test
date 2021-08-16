@@ -134,14 +134,14 @@
 
 <script>
 import PaginateTable from './PaginateTable'
-import queryQuestion from '@/api/question/queryQuestion'
-import createQuestion from '@/api/question/createQuestion'
-import deleteQuestion from '@/api/question/deleteQuestion'
-import getQuestionById from '@/api/question/getQuestionById'
+// import queryQuestion from '@/api/question/queryQuestion'
+// import createQuestion from '@/api/question/createQuestion'
+// import deleteQuestion from '@/api/question/deleteQuestion'
+// import getQuestionById from '@/api/question/getQuestionById'
 
 import SubjectSelector from './SubjectSelector'
 import QuestionTypeSelector from './QuestionTypeSelector'
-import { errorTip, successTip } from '@/utils/tips'
+// import { errorTip, successTip } from '@/utils/tips'
 import store from '../store'
 
 export default {
@@ -161,8 +161,8 @@ export default {
         subjectId: null,
         typeId: null
       },
-      typeFormatter: createQuestion.typeFormatter,
-      forTypeName: createQuestion.forTypeName,
+      // typeFormatter: createQuestion.typeFormatter,
+      // forTypeName: createQuestion.forTypeName,
       detailOpened: false,
       addDialogOpen: false,
       detail: {
@@ -213,7 +213,7 @@ export default {
       this.changePage(1)
     },
     changePage (pageNum) {
-      const params = queryQuestion.initParams()
+      // const params = queryQuestion.initParams()
       params.perPage = 20
       params.pageNum = pageNum
       params.subjectId = this.form.subjectId
@@ -221,7 +221,7 @@ export default {
       params.typeId = this.form.typeId
       params.creatorId = this.form.myCreate ? this.state.userInfo.id : null
       console.log(params)
-      queryQuestion.request(params)
+      // queryQuestion.request(params)
         .then(resp => {
           this.questionList = resp.results
           this.pagination = resp.pagination
@@ -230,35 +230,36 @@ export default {
     },
     openDetail (row, column, event) {
       console.log('با موفقیت ایجاد شد! ' + row.id)
-      getQuestionById.request(row.id)
-        .then(resp => {
-          this.detail = resp
-          this.detailOpened = true
-        })
-        .catch(errorTip)
-    },
-    createQuestion () {
-      const newQuestion = this.newQuestion
-      createQuestion.request(newQuestion)
-        .then(value => {
-          successTip('با موفقیت ایجاد شد')
-          this.addDialogOpen = false
-          this.query()
-        })
-        .catch(errorTip)
-    },
-    handleDelete (id) {
-      console.log(id)
-      deleteQuestion.request(id)
-        .then(value => {
-          successTip('با موفقیت حذف شد')
-          this.query()
-        })
-        .catch(errorTip)
-    },
-    toOption (id) {
-      return String.fromCharCode(id + 65)
-    }
+      // getQuestionById.request(row.id)
+    //     .then(resp => {
+    //       this.detail = resp
+    //       this.detailOpened = true
+    //     })
+    //     .catch(errorTip)
+    // },
+    // createQuestion () {
+      // const newQuestion = this.newQuestion
+      // createQuestion.request(newQuestion)
+        // .then(value => {
+        //   successTip('با موفقیت ایجاد شد')
+        //   this.addDialogOpen = false
+        //   this.query()
+        // })
+        // .catch(errorTip)
+    // }
+
+    // handleDelete (id) {
+      // console.log(id)
+      // deleteQuestion.request(id)
+      //   .then(value => {
+      //     successTip('با موفقیت حذف شد')
+      //     this.query()
+      //   })
+      //   .catch(errorTip)
+    // }
+    // toOption (id) {
+    //   return String.fromCharCode(id + 65)
+     }
   }
 }
 </script>

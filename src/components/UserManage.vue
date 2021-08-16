@@ -37,10 +37,10 @@
 import PaginateTable from './PaginateTable'
 
 import store from '../store'
-import searchUser from '../api/user/searchUser'
-import deleteUser from '../api/user/deleteUser'
-import { errorTip, successTip } from '@/utils/tips'
-import { forName } from '@/api/baseClass'
+// import searchUser from '../api/user/searchUser'
+// import deleteUser from '../api/user/deleteUser'
+// import { errorTip, successTip } from '@/utils/tips'
+// import { forName } from '@/api/baseClass'
 
 export default {
   name: 'user',
@@ -54,7 +54,7 @@ export default {
       keyword: '',
       userList: [],
       pagination: {},
-      roleIdToName: forName,
+      // roleIdToName: forName,
       editDialogOpen: false
     }
   },
@@ -63,26 +63,26 @@ export default {
       this.changePage(1)
     },
     changePage (pageNum) {
-      const params = searchUser.initParams()
-      params.name = this.keyword
-      params.roleId = null
-      params.perPage = 20
-      params.pageNum = pageNum
-      console.log(params)
-      searchUser.request(params)
-        .then(resp => {
-          this.userList = resp.results
-          this.pagination = resp.pagination
-        })
-        .catch(errorTip)
+      // const params = searchUser.initParams()
+      // params.name = this.keyword
+      // params.roleId = null
+      // params.perPage = 20
+      // params.pageNum = pageNum
+      // console.log(params)
+      // searchUser.request(params)
+      // .then(resp => {
+      //   this.userList = resp.results
+      //   this.pagination = resp.pagination
+      // })
+      // .catch(errorTip)
     },
     handleDelete (id) {
-      deleteUser.request(id)
-        .then(value => {
-          successTip('با موفقیت حذف شد')
-          this.query()
-        })
-        .catch(errorTip)
+      // deleteUser.request(id)
+      // .then(value => {
+      //   successTip('با موفقیت حذف شد')
+      //   this.query()
+      // })
+      // .catch(errorTip)
     }
   }
 }

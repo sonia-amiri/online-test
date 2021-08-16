@@ -22,7 +22,7 @@
 
 <script>
 import { errorTip } from '@/utils/tips'
-import searchUser from '@/api/user/searchUser'
+// import searchUser from '@/api/user/searchUser'
 export default {
   name: 'UserSelector',
   data () {
@@ -34,12 +34,12 @@ export default {
   },
   methods: {
     search (name) {
-      const params = searchUser.initParams()
+      // const params = searchUser.initParams()
       this.loading = true
-      params.name = name
-      params.roleId = 3
-      params.perPage = 20
-      searchUser.request(params)
+      // params.name = name
+      // params.roleId = 3
+      // params.perPage = 20
+      // searchUser.request(params)
         .then(resp => {
           this.options = resp.results
         })

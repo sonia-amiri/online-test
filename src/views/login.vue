@@ -110,7 +110,7 @@ export default {
     },
     login () {
       this.$refs.loginFormRef.validate(async (valid) => {
-        if (this.regMobile.test(this.userFlag)) this.loginForm.mobile = this.userFlag
+        // if (this.regMobile.test(this.userFlag)) this.loginForm.mobile = this.userFlag
         if (this.regEmail.test(this.userFlag)) this.loginForm.email = this.userFlag
         if (this.regName.test(this.userFlag)) this.loginForm.username = this.userFlag
         if (!(this.loginForm.email || this.loginForm.email || this.loginForm.username)) return false
