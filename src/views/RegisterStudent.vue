@@ -21,8 +21,8 @@
         <el-form-item label="ایمیل" prop="email">
           <el-input v-model="registerForm.email" placeholder="لطفا ایمیل خود را وارد کنید" prefix-icon="el-icon-message"></el-input>
         </el-form-item>
-        <el-form-item label="کد ملی" prop="email">
-          <el-input v-model="registerForm.email" placeholder="لطفا کد ملی خود را وارد کنید" prefix-icon="el-icon-message"></el-input>
+        <el-form-item label="کد ملی" prop="code">
+          <el-input v-model="registerForm.code" placeholder="لطفا کد ملی خود را وارد کنید" prefix-icon="el-icon-message"></el-input>
         </el-form-item>
         <el-form-item label="رشته" prop="roleId">
           <el-select v-model="registerForm.roleId" placeholder="لطفا رشته تحصیلی را انتخاب کنید">
@@ -139,7 +139,7 @@ export default {
     register () {
       this.$refs.registerFormRef.validate(async (valid) => {
         if (!valid) return
-        this.$axios.post('api/v1/users', this.registerForm)
+        this.$axios.post(process .env.VUE_APP_BACKEND_URL +'/auth/register', this.registerForm)
           .then(value => {
             this.$message.success('ثبت نام موفق آمیز')
             this.goLogin()

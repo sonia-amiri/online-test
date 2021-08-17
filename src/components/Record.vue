@@ -67,7 +67,7 @@
 
 <script>
 // import getAllRecords from '@/api/paper/getAllRecords'
-import { errorTip, successTip } from '@/utils/tips'
+// import { errorTip, successTip } from '@/utils/tips'
 import { dateTimeFormatter } from '@/utils/time'
 
 // import { forTypeName } from '@/api/question/createQuestion'
@@ -77,11 +77,11 @@ import { dateTimeFormatter } from '@/utils/time'
 export default {
   name: 'Record',
   created () {
-    getAllRecords.request()
-      .then(resp => {
-        console.log(resp)
-        this.records = resp
-      }).catch(errorTip)
+    // getAllRecords.request()
+    //   .then(resp => {
+    //     console.log(resp)
+    //     this.records = resp
+    //   }).catch(errorTip)
   },
   data () {
     return {
@@ -112,33 +112,33 @@ export default {
     }
   },
   methods: {
-    forTypeName,
+    // forTypeName,
     openJudjeDialog (row) {
       console.log(row)
-      const factIdToAnswer = row.content
-      const factScoreDetail = row.factScoreDetail
+      // const factIdToAnswer = row.content
+      // const factScoreDetail = row.factScoreDetail
       this.checkRequest.studentId = row.studentId
       this.checkRequest.examPlanId = row.examPlanId
-      getPaperByPlanId.request(row.paperId)
-        .then(resp => {
-          this.paperPreview = resp
-          this.paperPreview.questions.forEach((question, index) => {
-            question.descriptions.forEach(description => {
-              this.$set(this.idToAnswer, description.id, factIdToAnswer[description.id])
-              this.$set(this.idToFactScoreDetail, description.id, factScoreDetail[description.id] || 0)
-            })
-          })
-          this.dialogOpen = true
-        })
+      // getPaperByPlanId.request(row.paperId)
+      //   .then(resp => {
+      //     this.paperPreview = resp
+      //     this.paperPreview.questions.forEach((question, index) => {
+      //       question.descriptions.forEach(description => {
+      //         this.$set(this.idToAnswer, description.id, factIdToAnswer[description.id])
+      //         this.$set(this.idToFactScoreDetail, description.id, factScoreDetail[description.id] || 0)
+      //       })
+      //     })
+      //     this.dialogOpen = true
+      //   })
     },
     pushCheck () {
       this.checkRequest.idToScore = this.idToFactScoreDetail
-      checkPaper.request(this.checkRequest)
-        .then(value => {
-          successTip('判卷成功')
-          this.dialogOpen = false
-        })
-        .catch(errorTip)
+      // checkPaper.request(this.checkRequest)
+      //   .then(value => {
+      //     successTip('判卷成功')
+      //     this.dialogOpen = false
+      //   })
+      //   .catch(errorTip)
     },
     toOption (id) {
       return String.fromCharCode(id + 65)

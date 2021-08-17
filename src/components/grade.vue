@@ -26,6 +26,13 @@ export default {
         address: '89'
       }]
     }
+  },
+  getExamList () {
+    this.$axios.post('/resultexam')
+      .then(data => {
+        this.tableDatat = data
+      })
+    // .catch(errorTip)
   }
 }
 </script>

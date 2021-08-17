@@ -46,27 +46,27 @@
 
 // import getPaperByPlanId from '@/api/paper/getPaperByPlanId'
 // import pushPaper from '@/api/paper/pushPaper'
-import { errorTip, successTip } from '@/utils/tips'
+// import { errorTip, successTip } from '@/utils/tips'
 export default {
   name: 'Examining',
   props: ['id'],
   created () {
     this.content.idToAnswer = this.idToAnswer
-    getPaperByPlanId.request(this.id)
-      .then(resp => {
-        this.paperPreview = resp
-        this.paperPreview.questions.forEach((question, index) => {
-          question.descriptions.forEach(description => {
-            this.$set(this.idToAnswer, description.id, {
-              optionId: 0,
-              optionIds: [],
-              text: '',
-              trueOrFalse: null
-            })
-          })
-        })
-        this.allDone = true
-      })
+    // getPaperByPlanId.request(this.id)
+    //   .then(resp => {
+    //     this.paperPreview = resp
+    //     this.paperPreview.questions.forEach((question, index) => {
+    //       question.descriptions.forEach(description => {
+    //         this.$set(this.idToAnswer, description.id, {
+    //           optionId: 0,
+    //           optionIds: [],
+    //           text: '',
+    //           trueOrFalse: null
+    //         })
+    //       })
+    //     })
+    //     this.allDone = true
+    //   })
   },
   data () {
     return {
@@ -80,18 +80,18 @@ export default {
     }
   },
   methods: {
-    forTypeName,
+    // forTypeName,
     toOption (id) {
       return String.fromCharCode(id + 65)
     },
     pushAnswer () {
       console.log(this.content)
-      pushPaper.request(this.content)
-        .then(value => {
-          successTip('交卷成功！')
-          this.$router.push('/home/exam')
-        })
-        .catch(errorTip)
+    //   pushPaper.request(this.content)
+    //     .then(value => {
+    //       successTip('交卷成功！')
+    //       this.$router.push('/home/exam')
+    //     })
+    //     .catch(errorTip)
     }
   }
 }
