@@ -214,39 +214,39 @@ export default {
     },
     changePage (pageNum) {
       // const params = queryQuestion.initParams()
-      params.perPage = 20
-      params.pageNum = pageNum
-      params.subjectId = this.form.subjectId
-      params.keyword = this.form.keyword
-      params.typeId = this.form.typeId
-      params.creatorId = this.form.myCreate ? this.state.userInfo.id : null
-      console.log(params)
+      // params.perPage = 20
+      // params.pageNum = pageNum
+      // params.subjectId = this.form.subjectId
+      // params.keyword = this.form.keyword
+      // params.typeId = this.form.typeId
+      // params.creatorId = this.form.myCreate ? this.state.userInfo.id : null
+      // console.log(params)
       // queryQuestion.request(params)
-        .then(resp => {
-          this.questionList = resp.results
-          this.pagination = resp.pagination
-        })
-        .catch(errorTip)
+    // .then(resp => {
+    //   this.questionList = resp.results
+    //   this.pagination = resp.pagination
+    // })
+    // .catch(errorTip)
     },
     openDetail (row, column, event) {
       console.log('با موفقیت ایجاد شد! ' + row.id)
       // getQuestionById.request(row.id)
-    //     .then(resp => {
-    //       this.detail = resp
-    //       this.detailOpened = true
-    //     })
-    //     .catch(errorTip)
-    // },
-    // createQuestion () {
+      //     .then(resp => {
+      //       this.detail = resp
+      //       this.detailOpened = true
+      //     })
+      //     .catch(errorTip)
+      // },
+      // createQuestion () {
       // const newQuestion = this.newQuestion
       // createQuestion.request(newQuestion)
-        // .then(value => {
-        //   successTip('با موفقیت ایجاد شد')
-        //   this.addDialogOpen = false
-        //   this.query()
-        // })
-        // .catch(errorTip)
-    // }
+      // .then(value => {
+      //   successTip('با موفقیت ایجاد شد')
+      //   this.addDialogOpen = false
+      //   this.query()
+      // })
+      // .catch(errorTip)
+      // }
 
     // handleDelete (id) {
       // console.log(id)
@@ -259,7 +259,7 @@ export default {
     // }
     // toOption (id) {
     //   return String.fromCharCode(id + 65)
-     }
+    }
   }
 }
 </script>
