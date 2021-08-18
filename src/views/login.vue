@@ -114,10 +114,16 @@ export default {
         if (this.regEmail.test(this.userFlag)) this.loginForm.email = this.userFlag
         if (this.regName.test(this.userFlag)) this.loginForm.username = this.userFlag
         if (!(this.loginForm.email || this.loginForm.email || this.loginForm.username)) return false
-        this.$axios.post('api/v1/auth', this.loginForm)
+        this.$axios.post(process.env.VUE_APP_BACKEND_URL + '/auth/login', this.loginForm)
           .then(value => {
-            this.$message.success('ورود موفق')
-            this.$router.push('/home')
+            if(value.redirect === 'Student') {
+              this.$message.success('ورود موفق')
+              this.$router.push('/home')
+            }
+            if(value.redirect === 'RegisterStudent') {
+              this.$router.push('/RegisterStudent')
+            }
+
           })
           .catch(errorTip)
       })
@@ -125,10 +131,15 @@ export default {
     register () {
       this.$refs.registerFormRef.validate(async (valid) => {
         if (!valid) return
-        this.$axios.post('api/v1/users', this.registerForm)
+        this.$axios.post(process.env.VUE_APP_BACKEND_URL + '/auth/login', this.registerForm)
           .then(value => {
-            this.$message.success('ثبت نام موفق آمیز')
-            this.goLogin()
+            if(value.redirect == 'Student') {
+              this.$message.success('ورود موفق')
+              this.$router.push('/home')
+            }
+            if(value.redirect == 'RegisterStudent') {
+              this.$router.push('/RegisterStudent')
+            }
           })
       })
     },
