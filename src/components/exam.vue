@@ -7,6 +7,16 @@
     </el-breadcrumb>
     <el-card>
       <el-table :data="examList">
+        <el-table-column prop="name" label="نام موضوع"></el-table-column>
+        <el-table-column align="right" label="نمایش">
+        <template slot-scope="scope">
+            <el-button size="mini"
+                       type="info"
+                       @click="examQuestions(scope.row._id)">نمایش
+            </el-button>
+        </template>
+        </el-table-column>
+        <!--
         <el-table-column prop="id" label="شناسه" width="60"></el-table-column>
         <el-table-column prop="subjectName" label="نام موضوع"></el-table-column>
         <el-table-column prop="startTime" label="زمان شروع" :formatter="dateTimeFormatter" width="150"></el-table-column>
@@ -40,6 +50,7 @@
             </el-button>
           </template>
         </el-table-column>
+        -->
       </el-table>
     </el-card>
 
@@ -110,11 +121,15 @@ export default {
       }
     },
     getExamList () {
-      this.$axios.get('api/v1/' + this.userType + '/plans')
+      this.$axios.get(process.env.VUE_APP_BACKEND_URL + '/exam/list')
         .then(data => {
           this.examList = data
         })
         .catch(errorTip)
+    },
+    examQuestions (id) {
+      console.log(id)
+      this.$router.push('/student/questions/' + id)
     },
     handleDelete (index, row) {
       this.$axios.delete('api/v1/teacher/plans/' + row.id)

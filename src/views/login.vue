@@ -13,12 +13,6 @@
                     prefix-icon="el-icon-lock"></el-input>
         </el-form-item>
 
-        <el-form-item label="نوع" prop="roleId">
-          <el-select v-model="registerForm.roleId" placeholder="لطفا نوع حساب کاربری را انتخاب کنید">
-            <el-option label="دانشجو" value="1"></el-option>
-            <el-option label="معلم " value="2"></el-option>
-          </el-select>
-        </el-form-item>
         <el-form-item class="btns">
           <el-button type="primary" round @click="register">ورود به سیستم  </el-button>
         </el-form-item>
@@ -135,7 +129,7 @@ export default {
           .then(value => {
             if(value.redirect == 'Student') {
               this.$message.success('ورود موفق')
-              this.$router.push('/home')
+              this.$router.push('/student/exam')
             }
             if(value.redirect == 'RegisterStudent') {
               this.$router.push('/RegisterStudent')

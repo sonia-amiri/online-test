@@ -97,13 +97,17 @@ const routes = [
 
   // },
   {
-    path: '/Student',
+    path: '/student',
     component: () =>
       import('../views/Student'),
     children: [
       {
         path: 'exam',
         component: () => import('../components/exam.vue')
+      },
+      {
+        path: 'questions/:id',
+        component: () => import('../components/QuestionManage')
       },
       {
         path: 'courses',
